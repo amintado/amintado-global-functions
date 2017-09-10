@@ -10,7 +10,7 @@
  * All rights reserved.
  ******************************************************************************/
 
-namespace amintado\base\functions;
+namespace amintado\base;
 use common\models\Galleries;
 use common\models\StatPlaceView;
 use common\models\User;
@@ -21,7 +21,7 @@ use function realpath;
 use const SORT_DESC;
 use Yii;
 use yii\base\Component;
-use amintado\base\functions\jdf;
+use amintado\base\jdf;
 class AmintadoFunctions extends Component {
 
     public $telegram_bot='@shahrmap_debug';

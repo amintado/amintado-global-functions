@@ -1,6 +1,6 @@
 <?php
 
-namespace amintado\base\functions;
+namespace amintado\base;
 
 use yii\base\Component;
 
