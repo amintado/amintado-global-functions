@@ -30,7 +30,7 @@ class AmintadoFunctions extends Component {
      * Will return Current User LoggedIn Madel
      * @return null|\yii\web\IdentityInterface
      */
-    public static function currentUser() {
+    public function currentUser() {
         return Yii::$app->user->identity;
     }
 
@@ -38,7 +38,7 @@ class AmintadoFunctions extends Component {
      * Will return Today Date In Gregorian Format With YYYY-MM-DD Mask
      * @return false|string
      */
-    public static function getdate() {
+    public function getdate() {
         return date('Y-m-d');
     }
 
@@ -46,7 +46,7 @@ class AmintadoFunctions extends Component {
      * Will Return Current Date And Time
      * @return string
      */
-    public static function getdatetime() {
+    public function getdatetime() {
         return date('Y-m-d') . ' ' . jdf::jdate('H:i:s');
     }
 
@@ -55,7 +55,7 @@ class AmintadoFunctions extends Component {
      * @param $in_datetime
      * @return string will return string date and if DateTime was =='0000-00-00 00:00:00' will return '---'
      */
-    public static function convertdatetime($in_datetime) {
+    public function convertdatetime($in_datetime) {
         if ($in_datetime && $in_datetime != '0000-00-00 00:00:00') {
             $datetime = explode(' ', $in_datetime);
             return jdf::jdate('Y/m/d', strtotime($datetime[0])) . ' - ' . $datetime[1];
@@ -68,7 +68,7 @@ class AmintadoFunctions extends Component {
      * @param $array
      * @return mixed
      */
-    public static function null_filter($array)
+    public function null_filter($array)
     {
         $text = serialize($array);
         return unserialize(str_replace(";N", ";s:0:\"\"", $text));
@@ -77,7 +77,7 @@ class AmintadoFunctions extends Component {
         // return $array;
     }
 
-    public static function getfilename()
+    public function getfilename()
     {
         $date = date('Ymd');
         $range1 = range('a', 'z');
@@ -99,7 +99,7 @@ class AmintadoFunctions extends Component {
      * created by amintado
      * will convert your gregorian date to  shamsi and then clear 00:00:00 text from it and retyrn shamsi YYYY:MM:DD
      */
-    public static function Date_To_Shamsi($date)
+    public function Date_To_Shamsi($date)
     {
         try {
             return self::DateTime_Clear($date . ' 00:00:00');
@@ -112,7 +112,7 @@ class AmintadoFunctions extends Component {
      * created by amintado
      * will convert your date to  gregorian
      */
-    public static function Date_to_Gregory($date)
+    public function Date_to_Gregory($date)
     {
         if (count(explode('/', $date)) < 3) {
             if (count(explode('-', $date)) < 3){
@@ -128,7 +128,7 @@ class AmintadoFunctions extends Component {
      *
      * yy:mm:dd as string
      */
-    public static function DateTime_Clear($date)
+    public function DateTime_Clear($date)
     {
         if ($date == '' or $date == null) {
             return '';
@@ -167,7 +167,7 @@ class AmintadoFunctions extends Component {
      * @param int $type
      * @return mixed|null|string
      */
-    public static function convertdate($in_date, $type = 0) {
+    public function convertdate($in_date, $type = 0) {
         if ($type === 0) {
             if ($in_date) {
                 if (strlen($in_date) > 10) {
@@ -196,7 +196,7 @@ class AmintadoFunctions extends Component {
         }
     }
 
-    public static function datestring($in_date) {
+    public function datestring($in_date) {
         if ($in_date) {
             if (strlen($in_date) > 10) {
                 $datetime = explode(' ', $in_date);
@@ -215,7 +215,7 @@ class AmintadoFunctions extends Component {
      *
      * @return mixed
      */
-    public static function getIP() {
+    public function getIP() {
         return $_SERVER['REMOTE_ADDR'];
     }
 
@@ -224,13 +224,13 @@ class AmintadoFunctions extends Component {
      * @param $password
      * @return string
      */
-    public static function setPassword($password) {
+    public function setPassword($password) {
         return Yii::$app->security->generatePasswordHash($password);
     }
-    public static function generateAuthKey() {
+    public function generateAuthKey() {
         return Yii::$app->security->generateRandomString();
     }
-    public static function generatePasswordResetToken() {
+    public function generatePasswordResetToken() {
         return Yii::$app->security->generateRandomString() . '_' . time();
     }
     /**
@@ -243,7 +243,7 @@ class AmintadoFunctions extends Component {
      * @param $objectID
      * @return mixed  return boolean if $bool parameter is true and return string link if $bool parameter is false
      */
-    public static function ImageReturn($objectID, $bool = false)
+    public function ImageReturn($objectID, $bool = false)
     {
 
 
@@ -299,7 +299,7 @@ class AmintadoFunctions extends Component {
      * @param array $templateData
      * @return bool
      */
-    public static function sendElasticEmail($to, $subject, $from = null, $fromName = null, $body_text = null, $body_html = null, $template = null, $templateData = [])
+    public function sendElasticEmail($to, $subject, $from = null, $fromName = null, $body_text = null, $body_html = null, $template = null, $templateData = [])
     {
         $res = "";
 
@@ -383,7 +383,7 @@ class AmintadoFunctions extends Component {
         return $res;
     }
 
-    public  function PlaceView_IP2Llocation($ip, $place_id, $place_author){
+    public function PlaceView_IP2Llocation($ip, $place_id, $place_author){
 
         $db = new \IP2Location\Database(realpath(__DIR__.'/../../../dbloc/IP2LOCATION-LITE-DB11.BIN'), \IP2Location\Database::FILE_IO);
 
