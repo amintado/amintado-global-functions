@@ -432,5 +432,29 @@ class AmintadoFunctions extends Component {
         Yii::$app->telegram->sendMessage(['chat_id' => $this->telegram_bot, 'text' => $text]);
         return;
     }
+    /**
+     * send any notification to any user
+     */
+    public function notification($method='sms',$user='all', $text='', $mail_subject=null){
+        switch ($method){
+            case 'sms':
+
+                break;
+            case 'email':
+                self::sendElasticEmail
+                (
+                    $user,
+                    $mail_subject,
+                    Yii::$app->systemCore->elasticMail['from_email'],
+                    Yii::$app->systemCore->elasticMail['from_name'],
+                    $text
+                );
+                break;
+            case 'telegram':
+                Yii::$app->telegram->sendMessage(['chat_id' => $user, 'text' => $text]);
+                break;
+
+        }
+    }
 
 }
