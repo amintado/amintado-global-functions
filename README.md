@@ -16,7 +16,7 @@ add this line to 'require' section in **composer.json** file
 ````
 "amintado/yii2-amintado-global-functions": "*"
 ````
-##config in Yii2
+## config in Yii2
 add this code under **component** in main.config file in your Yii2 application:
 ``````
 'functions'=>[
