@@ -80,3 +80,39 @@ for full guide go to [Persian guide](http://jdf.scr.ir/rahnama/)
 - [X] answerInlineQuery :Use this method to send answers to an inline query. On success, True is returned.
                          No more than 50 results per query are allowed.
 - [X] getFile :Use this method to get basic info about a file and prepare it for downloading. For the moment, bots can download files of up to 20MB in size. On success, a File object is returned. The file can then be downloaded via the link https://api.telegram.org/file/bot<token>/<file_path>, where <file_path> is taken from the response. It is guaranteed that the link will be valid for at least 1 hour. When the link expires, a new one can be requested by calling getFile again.
+
+## how to use?
+example :
+
+(new amintado\base\AmintadoFunctions())->convertdate($date);
+
+OR
+
+config class in main.php config file in your app:
+
+````
+'functions'=>[
+            'class'=>'amintado\base\AmintadoFunctions',
+            'telegram_bot' => '@Your_Bot_ID'
+        ]
+````
+
+and use in app with:
+
+Yii::$app->functions->convertdate($date);
+
+## auto compelete in Yii2
+
+find this file and open it:
+```
+@vendor\yiisoft\yii2\web\Application.php
+```
+
+now add this line to application class comments:
+```
+@property amintado\base\AmintadoFunctions $functions The amintado functions component.
+```
+
+now type Yii::$app->func
+
+auto compelete will work now
