@@ -26,15 +26,15 @@ add this code under **component** in main.config file in your Yii2 application:
 ``````
 
 ## AmintadoFunctions class Methods
--[X] current user :will return current loged in user
--[X] getdate :return today with 'y-m-d' format
--[X] getdatetime :will return today with 'y-m-d H:i:s' format
--[X] convertdatetime :will convert gregorian datetime to shmsi datetime 
--[X] null_filter :will chnge all null values to empty string with serialize and unserialize.(usefull for return data to android device)
--[X] getfilename :will return a unique name that begin with 'file_'.(usefull for create random unique file names)
--[X] Date_To_Shamsi :will convert date time to shamsi date
--[X] Date_to_Gregory: will convert shamsi date or shamsi datetime to gregorian
--[X] DateTime_Clear :will get a date time string and cut time value and return date only
+- [X] current user :will return current loged in user
+- [X] getdate :return today with 'y-m-d' format
+- [X] getdatetime :will return today with 'y-m-d H:i:s' format
+- [X] convertdatetime :will convert gregorian datetime to shmsi datetime 
+- [X] null_filter :will chnge all null values to empty string with serialize and unserialize.(usefull for return data to android device)
+- [X] getfilename :will return a unique name that begin with 'file_'.(usefull for create random unique file names)
+- [X] Date_To_Shamsi :will convert date time to shamsi date
+- [X] Date_to_Gregory: will convert shamsi date or shamsi datetime to gregorian
+- [X] DateTime_Clear :will get a date time string and cut time value and return date only
 - [X] convertdate :will convert gregorian date or gregorian datetime to shamsi date
 - [X] getIP: will return user IP
 - [X] setPassword: will change current user password
