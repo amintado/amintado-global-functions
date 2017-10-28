@@ -1,7 +1,7 @@
 # amintado-global-functions
 Global Functions For Use In Yii2 Web Applications For Persian Users and amintado extensions users
 
-##install with composer
+## install with composer
 ````
 $ composer requere amintado/yii2-amintado-global-functions "*"
 ````
