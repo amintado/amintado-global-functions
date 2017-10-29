@@ -12,9 +12,6 @@
       "homepage": "http://www.shahrmap.ir/"
     }
   ],
-  "require": {
-    "yiisoft/yii2-bootstrap": "@dev"
-  },
   "autoload": {
     "psr-4": {
       "amintado\\base\\": ""
