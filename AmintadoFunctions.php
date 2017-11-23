@@ -22,6 +22,9 @@ use const SORT_DESC;
 use Yii;
 use yii\base\Component;
 use amintado\base\jdf;
+use yii\helpers\Json;
+use yii\widgets\ActiveForm;
+
 class AmintadoFunctions extends Component {
 
     public $telegram_bot='@shahrmap_debug';
@@ -454,6 +457,22 @@ class AmintadoFunctions extends Component {
                 Yii::$app->telegram->sendMessage(['chat_id' => $user, 'text' => $text]);
                 break;
 
+        }
+    }
+
+    /**
+     * this method will register activeform validation script for nested forms
+     * @param $form ActiveForm
+     * @param $parrentFormID string
+     * @return void
+     */
+    public static function FormRegister($form, $parrentFormID){
+        foreach ($form->attributes as $key => $value){
+            $formid=$form->id;
+            $id= $value['name'];
+            $js="
+$('#".$parrentFormID."').yiiActiveForm('add', ".Json::htmlEncode($value).");";
+            echo "<script>$js</script>";
         }
     }
 
